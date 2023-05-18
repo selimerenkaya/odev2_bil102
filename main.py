@@ -1,8 +1,9 @@
 import arsa
 import daire
+import otel
 devam = "e"
 while devam != "h" and devam != "H":
-    yer = int(input("Fiyatını hesaplamak istediğiniz yerin numarasını giriniz\n1-Arsa\n2-Daire\nYer = "))
+    yer = int(input("Fiyatını hesaplamak istediğiniz yerin numarasını giriniz\n1-Arsa\n2-Daire\n3-Otel\nYer = "))
     if yer == 1:
         secim = int(input("\nArsanızın bölgesinin numarasını giriniz"
                           "\n1-Deniz Kenarı\n2-Şehir Merkezi\n3-Kırsal\nBölge = "))
@@ -31,6 +32,23 @@ while devam != "h" and devam != "H":
         alan = daire.daire_alan()
         fiyat = daire.daire_fiyat(alan,katsayi)
         print(f"Dairenizin fiyatı {fiyat:.2f}TL'dir.")
+        devam = input("\nDevam etmek için e/E çıkmak için h/H giriniz = ")
+    elif yer == 3:
+        secim = int(input("\nLütfen otelinizin bulunduğu şehri seçiniz"
+                          "\n1-Antalya\n2-Bodrum\n3-Çeşme\nŞehir= "))
+        while secim not in range(1, 4):  # geçerli aralıkta bir şehir numarası girilmiş mi diye kontrol eden kısım
+            secim = int(input("\nLütfen geçerli bir şehir numarası giriniz"
+                              "\n1-Antalya\n2-Bodrum\n3-Çeşme\nŞehir= "))
+
+        tur = int(input("\nOda türü numaranızı giriniz\n1-Kral dairesi\n2-Aile odası\n3-Tek kişilik oda\nTür = "))
+        while tur not in range(1, 4):  # geçerli aralıkta bir tür numarası girilmiş mi diye kontrol eden kısım
+            tur = int(input("\nLütfen geçerli bir tür numarası giriniz"
+                              "\n1-Kral dairesi\n2-Aile odası\n3-Tek kişilik oda\nTür = "))
+
+        otel.otel_katsayi(secim)
+        oda_fiyati = otel.oda_fiyat(tur)
+        otel_fiyatı = otel.otel_fiyat(oda_fiyati)
+        print(f"Otel Tatilinizin fiyatı {fiyat:.2f}TL'dir.")
         devam = input("\nDevam etmek için e/E çıkmak için h/H giriniz = ")
     else:
         print("Lütfen geçerli bir yer numarası giriniz.")
