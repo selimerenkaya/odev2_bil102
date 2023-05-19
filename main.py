@@ -30,7 +30,7 @@ while devam != "h" and devam != "H":
 
         katsayi = daire.daire_katsayi(secim)
         alan = daire.daire_alan()
-        fiyat = daire.daire_fiyat(alan,katsayi)
+        fiyat = daire.daire_fiyat(alan, katsayi)
         print(f"Dairenizin fiyatı {fiyat:.2f}TL'dir.")
         devam = input("\nDevam etmek için e/E çıkmak için h/H giriniz = ")
     elif yer == 3:
@@ -43,12 +43,12 @@ while devam != "h" and devam != "H":
         tur = int(input("\nOda türü numaranızı giriniz\n1-Kral dairesi\n2-Aile odası\n3-Tek kişilik oda\nTür = "))
         while tur not in range(1, 4):  # geçerli aralıkta bir tür numarası girilmiş mi diye kontrol eden kısım
             tur = int(input("\nLütfen geçerli bir tür numarası giriniz"
-                              "\n1-Kral dairesi\n2-Aile odası\n3-Tek kişilik oda\nTür = "))
+                            "\n1-Kral dairesi\n2-Aile odası\n3-Tek kişilik oda\nTür = "))
 
         otel.otel_katsayi(secim)
         oda_fiyati = otel.oda_fiyat(tur)
-        otel_fiyatı = otel.otel_fiyat(oda_fiyati)
-        print(f"Otel Tatilinizin fiyatı {fiyat:.2f}TL'dir.")
+        otel_fiyati = otel.otel_fiyat(oda_fiyati)
+        print(f"Otel Tatilinizin fiyatı {otel_fiyati:.2f}TL'dir.")
         devam = input("\nDevam etmek için e/E çıkmak için h/H giriniz = ")
     else:
         print("Lütfen geçerli bir yer numarası giriniz.")
